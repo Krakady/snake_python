@@ -59,6 +59,7 @@ def gameLoop():
         while game_close:
             dis.fill(white)
             message('You lost! Press Q-Quit or C-Play Again', red)
+            #message(f'You are earned {lenght_of_snake}', red)
             pygame.display.update()
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -73,16 +74,16 @@ def gameLoop():
                 game_over = True
             # Если клавиша нажата, то смотрим какая и в какую сторону двигаться
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT and x1_change != snake_size:
                     x1_change = -snake_size
                     y1_change = 0
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT and x1_change != -snake_size:
                     x1_change = snake_size
                     y1_change = 0
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP and y1_change != snake_size:
                     x1_change = 0
                     y1_change = -snake_size
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN and y1_change != -snake_size:
                     x1_change = 0
                     y1_change = snake_size
     # Смотрим, чтобы змея не вылезла за край карты, иначе игрок проиграл
