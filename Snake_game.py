@@ -59,7 +59,6 @@ def gameLoop():
         while game_close:
             dis.fill(white)
             message('You lost! Press Q-Quit or C-Play Again', red)
-            #message(f'You are earned {lenght_of_snake}', red)
             pygame.display.update()
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -95,7 +94,7 @@ def gameLoop():
         dis.fill(white)
     # Отрисовка еды
         pygame.draw.rect(dis, red, [foodx, foody, snake_size, snake_size])
-        snake_head = []
+        snake_head = list()
         snake_head.append(x1)
         snake_head.append(y1)
         snake_list.append(snake_head)
@@ -116,11 +115,10 @@ def gameLoop():
 
         clock.tick(snake_speed)
 
-    #message('You lost', red)
-    #pygame.display.update()
     time.sleep(2)
 
     pygame.quit()
     quit()
+
 
 gameLoop()
